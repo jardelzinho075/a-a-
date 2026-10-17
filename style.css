@@ -2384,3 +2384,148 @@ h3 em {
   padding: 4px;
 }
  
+/* =========================================================
+   AJUSTES PONTUAIS DE RESPONSIVIDADE
+   Mantidos ao final para respeitar o design desktop original.
+   ========================================================= */
+
+/* Permite que filhos de grid/flex encolham sem ampliar a página. */
+.hero-copy, .hero-stage, .combo-stage, .combo-feature, .combo-grid,
+.combo-card, .feature-copy, .builder-intro, .builder-ui,
+.builder-top > div, .summary-copy, .contact-copy,
+.contact-details, .cart-item > div:first-child {
+  min-width: 0;
+}
+
+/* A segunda versão do hero, declarada após as media queries,
+   precisa de adaptações próprias em telas estreitas. */
+@media (min-width: 821px) and (max-width: 1279px) {
+  .site-header { gap: 12px; }
+  .brand { flex-shrink: 0; }
+  .desktop-nav { gap: clamp(9px, 1.1vw, 15px); }
+  .header-actions { flex-shrink: 0; }
+  .hero-stage { min-width: 0; }
+  .hero-stage .orb-a { width: min(440px, 38vw); height: min(440px, 38vw); }
+  .hero-stage .splash-back { width: min(500px, 42vw); }
+  .hero-cup-left { width: clamp(135px, 18vw, 245px); height: clamp(190px, 24vw, 330px); }
+  .hero-cup-main { width: clamp(205px, 27vw, 365px); height: clamp(255px, 34vw, 455px); }
+  .hero-cup-right { width: clamp(135px, 17vw, 235px); height: clamp(180px, 23vw, 310px); }
+  .builder { gap: clamp(24px, 3vw, 45px); }
+  .builder-ui { min-width: 0; }
+  .base-choice { grid-template-columns: 46px minmax(0, 1fr) 18px; gap: 6px; }
+  .base-thumb { width: 46px; height: 46px; }
+}
+
+@media (min-width: 821px) and (max-width: 1050px) {
+  /* Há espaço insuficiente para marca, cinco links e dois CTAs. */
+  .desktop-nav, .header-cta { display: none; }
+  .menu-toggle { display: flex; }
+  .mobile-menu {
+    position: fixed;
+    z-index: 49;
+    top: 100px;
+    left: 20px;
+    right: 20px;
+    padding: 14px;
+    background: rgba(75, 10, 66, 0.96);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    opacity: 0;
+    transform: translateY(-15px);
+    pointer-events: none;
+    transition: 0.25s;
+    box-shadow: 0 20px 50px rgba(40, 0, 35, 0.25);
+  }
+  .mobile-menu.open { opacity: 1; transform: none; pointer-events: auto; }
+  .mobile-menu a { padding: 13px 14px; color: #fff; border-radius: 12px; font-size: 12px; }
+  .mobile-menu a:hover { background: rgba(255, 255, 255, 0.08); }
+  .mobile-menu .mobile-order { background: var(--yellow); color: var(--wine); margin-top: 5px; font-weight: 900; }
+}
+
+@media (max-width: 820px) {
+  .hero-stage { width: 100%; }
+  .hero-stage .orb-a { width: min(340px, 78vw); height: auto; aspect-ratio: 1; }
+  .hero-stage .splash-back { width: min(410px, 94vw); }
+  .builder-ui { width: 100%; }
+  .promo-layout { min-width: 0; }
+  .promo-big { min-width: 0; }
+  .combo-feature { min-width: 0; }
+  .feature-copy { min-width: 0; }
+  .base-choice { grid-template-columns: 53px minmax(0, 1fr) 20px; }
+  .base-choice > span:nth-child(2) { min-width: 0; }
+  .cart-items { min-height: 0; }
+}
+
+@media (max-width: 600px) {
+  .hero h1 { font-size: clamp(43px, 11vw, 66px); }
+  .section h2, .promo-heading h2, .contact-copy h2 {
+    font-size: clamp(37px, 9.5vw, 48px);
+    overflow-wrap: anywhere;
+  }
+  .hero-copy, .section-head, .promo-heading { max-width: 100%; }
+  .hero-actions .button { max-width: 100%; }
+  .hero-stage { height: clamp(300px, 90vw, 440px); margin-top: 18px; }
+  .hero-cup-left {
+    width: 37%; height: 56%; left: -3%; top: 32%;
+  }
+  .hero-cup-main {
+    width: 58%; height: 76%; left: 20%; top: 10%;
+  }
+  .hero-cup-right {
+    width: 36%; height: 52%; right: -4%; top: 31%;
+  }
+  .hero-strawberry { width: clamp(50px, 15vw, 80px); height: auto; aspect-ratio: 1; }
+  .hero-banana { width: clamp(58px, 18vw, 95px); height: auto; aspect-ratio: 1; }
+  .hero-stage .orb-a { width: 70%; }
+  .hero-stage .splash-back { width: 86%; }
+  .hero-price { right: 2%; bottom: 0; }
+  .hero-cup-main .product-tag { left: 12%; bottom: 5%; }
+  .combo-feature { min-height: 0; grid-template-rows: auto minmax(240px, auto); }
+  .feature-copy { padding: 30px 24px; }
+  .feature-copy h3 { font-size: clamp(35px, 10vw, 43px); }
+  .promo-overlay { left: 20px; right: 20px; bottom: 22px; }
+  .promo-overlay h3 { font-size: clamp(29px, 8.5vw, 34px); }
+  .builder-ui { padding: clamp(14px, 4vw, 22px); }
+  .builder-top { gap: 12px; }
+  .builder-top h3 { font-size: clamp(19px, 5vw, 25px); }
+  .builder-total { flex-shrink: 0; }
+  .builder-total strong { font-size: clamp(17px, 4.7vw, 22px); }
+  .builder-perks { flex-wrap: wrap; gap: 18px; }
+  .topping-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .option-row { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .base-options { grid-template-columns: minmax(0, 1fr); }
+  .base-choice { width: 100%; }
+  .cart-item { grid-template-columns: minmax(0, 1fr) auto; }
+  .cart-item p, .cart-item h4, .summary-copy p { overflow-wrap: anywhere; }
+  .qty { gap: 4px; }
+  .qty button { min-width: 30px; min-height: 30px; }
+  .cart-drawer { width: 100%; max-width: 100%; height: 100%; height: 100dvh; }
+}
+
+@media (max-width: 370px) {
+  .site-header { padding-left: 10px; padding-right: 10px; }
+  .brand { font-size: 12px; gap: 6px; letter-spacing: -0.045em; }
+  .brand-mark { flex: 0 0 28px; width: 28px; height: 28px; }
+  .header-actions { gap: 6px; }
+  .cart-trigger { padding: 0 8px; }
+  .menu-toggle { width: 40px; height: 42px; }
+  .hero { padding-left: 16px; padding-right: 16px; }
+  .hero h1 { font-size: clamp(41px, 12vw, 48px); }
+  .hero-stage { height: 300px; }
+  .hero-price strong { font-size: 16px; }
+  .section, .promo-section, .contact-section { padding-left: 16px; padding-right: 16px; }
+  .feature-copy { padding: 26px 19px; }
+  .builder-ui { padding: 13px; }
+  .topping { padding-left: 4px; padding-right: 4px; }
+  .topping b { overflow-wrap: anywhere; text-align: center; }
+  .cart-drawer { padding: 20px 14px; }
+}
+
+/* Evita que o menu recolhido receba foco visual e cliques quando fechado. */
+@media (max-width: 1050px) {
+  .mobile-menu:not(.open) { visibility: hidden; }
+  .mobile-menu.open { visibility: visible; }
+}
