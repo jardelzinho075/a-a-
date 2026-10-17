@@ -962,15 +962,7 @@ h3 em {
   align-items: start;
   position: relative;
 }
-.builder:before {
-  content: "";
-  position: absolute;
-  width: 500px;
-  height: 500px;
-  top: 40px;
-  border-radius: 50%;
-  background: rgba(192, 0, 104, 0.05);
-}
+
 .builder-intro {
   position: sticky;
   top: 120px;
