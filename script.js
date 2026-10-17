@@ -4,7 +4,7 @@
    Formato: código do país + DDD + número, sem +, espaços
    ou símbolos. Exemplo: 5581999999999
    ========================================================= */
-const WHATSAPP_NUMBER = "5581999999999";
+const WHATSAPP_NUMBER = "558189263743";
 
 const money = value => value.toLocaleString("pt-BR", {
   style: "currency",
